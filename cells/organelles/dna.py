@@ -1,5 +1,5 @@
 
-class ADN():
+class DNA():
     ADN_COMPLEMENTS : dict[str][str] = {
         "A" : "T",
         "T" : "A",
@@ -15,8 +15,8 @@ class ADN():
 
     def __init__(self, coding_strand : str):
         self._coding_strand : str = coding_strand.upper()
-        self._template_strand : str = ADN._generate_template_strand(self.coding)
-        self._rna_strand : str = ADN._generate_arn_strand(self.template)
+        self._template_strand : str = DNA._generate_template_strand(self.coding)
+        self._rna_strand : str = DNA._generate_arn_strand(self.template)
 
     @property
     def coding(self) -> str:
@@ -34,7 +34,7 @@ class ADN():
     def _generate_template_strand(coding_strand : str) -> str:
         template = ""
         for base in coding_strand:
-            template += ADN.ADN_COMPLEMENTS[base]
+            template += DNA.ADN_COMPLEMENTS[base]
         
         #In reverse order
         return(template[::-1])
@@ -43,6 +43,6 @@ class ADN():
     def _generate_arn_strand(template_strand : str) -> str:
         rna = ""
         for base in template_strand:
-            rna += ADN.RNA_COMPLEMENTS[base]
+            rna += DNA.RNA_COMPLEMENTS[base]
         return(rna)
 
