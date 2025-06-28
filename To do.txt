@@ -1,0 +1,198 @@
+🧬 1. Modelo Genético y de Expresión
+Estructuras:
+DNAHelix: clase con ambas hebras, secuencias, métodos de acceso por codón.
+
+Gene: con nombre, ubicación (start/stop), hebra, función, etc.
+
+RNA / mRNA: transcritos codificantes, emparejados con genes.
+
+Funcionalidades:
+Transcripción (transcribe(gene) → mRNA)
+
+Splicing de intrones (si lo modelas eucariota real)
+
+Regulación genética: promotores, represores, factores de transcripción.
+
+🧪 2. Síntesis y Traducción de Proteínas
+Estructuras:
+Codon → AminoAcid dictionary (completo).
+
+AminoAcid enum/class: con masa, polaridad, carga, etc.
+
+Protein: lista de aminoácidos, propiedades (estructura secundaria, función).
+
+Funcionalidades:
+Traducción (ribosomas paso a paso)
+
+Tiempo de síntesis por codón
+
+Mutaciones / errores
+
+Activación de proteínas (fosforilación, corte proteolítico…)
+
+🧫 3. Orgánulos y Compartimentalización
+Estructuras:
+Organelle clase base: posición, energía, volumen, etc.
+
+Subclases: Nucleus, Mitochondrion, RoughER, SmoothER, GolgiApparatus, Lysosome, etc.
+
+Funcionalidades:
+Transporte de moléculas entre orgánulos (vesículas, difusión)
+
+Producción de ATP (mitocondria, ciclo de Krebs simplificado o detallado)
+
+Detoxificación y metabolismo de lípidos (REL)
+
+Control del entorno interno (pH, iones)
+
+🔁 4. Sistema de Señales y Regulación Celular
+Estructuras:
+Signal: tipo (hormonal, metabólica, ambiental), origen, destino, payload.
+
+Receptor: en membrana u orgánulos, con afinidad por señales específicas.
+
+SignalPathway: cascadas (e.g. MAPK), multietapas.
+
+Funcionalidades:
+Detección, activación, amplificación de señales.
+
+Interacción entre señales y expresión génica.
+
+Modelos jerárquicos o estocásticos de señalización.
+
+💥 5. Metabolismo Celular
+Estructuras:
+Molecule: glucosa, lípido, nucleótido, toxina, etc.
+
+Enzyme: tipo, Km, Vmax, inhibidores, cofactores.
+
+Reaction: entradas, salidas, condiciones.
+
+Funcionalidades:
+Simulación de rutas (glicólisis, ciclo de Krebs, fosforilación oxidativa…)
+
+Producción/consumo de energía, balance redox
+
+Regulación por retroalimentación
+
+📦 6. Transporte y Movimiento Intracelular
+Estructuras:
+Vesicle: contenido, origen, destino
+
+TransportProtein: bombas, canales, carriers
+
+MembraneRegion: con composición lipídica y receptores.
+
+Funcionalidades:
+Transporte activo/pasivo
+
+Secreción / endocitosis
+
+Tráfico de proteínas (RE → Golgi → membrana)
+
+⏱️ 7. Motor de Simulación y Gestión del Tiempo
+Estructuras:
+SimulationEngine: coordina ticks, módulos activos, tiempo.
+
+Tickable: interfaz para cualquier entidad con método tick()
+
+EventQueue: eventos programados, prioridades.
+
+Funcionalidades:
+Ejecutar acciones en paralelo o secuencial por tick
+
+Soporte para múltiples escalas temporales
+
+Control de pausas, aceleración, exportación de estados
+
+⚙️ 8. Modelos de Abstracción Variable
+Estructuras:
+AbstractCell, DetailedCell, HybridCell: misma API, distinto nivel.
+
+ProcessMode: Enum (DETAILED, STATISTICAL, FIXED_RATE)
+
+Delegator o Adapter para cambiar entre modos según zona o condición.
+
+Funcionalidades:
+Cambiar de modelo sin romper consistencia
+
+Transición entre granularidades (e.g. resumen estadístico de cientos de ticks)
+
+Comparación entre enfoques (benchmark, validación)
+
+🔬 9. Herramientas de Análisis y Visualización (opcional pero útil)
+Estructuras:
+Log, StateSnapshot, Metric
+
+Profiler: mide consumo, velocidad, eficiencia por tick/orgánulo
+
+Funcionalidades:
+Graficar producción de proteínas, energía, toxinas, etc.
+
+Exportar datasets para análisis posterior
+
+Comparar distintos modos de simulación
+
+🌐 10. Interacción Externa / Entorno
+Si decides simular interacciones con el medio:
+
+Estructuras:
+Environment: temperatura, toxinas, señales externas.
+
+MembraneTransport: entradas y salidas controladas.
+
+Funcionalidades:
+Homeostasis (ajuste a cambios del entorno)
+
+Respuesta a fármacos, nutrientes, estrés
+
+Adaptación evolutiva (mutaciones, plasticidad)
+
+🧱 Base Técnica (independiente del contenido biológico)
+Uso de dataclass y Enum en Python para mantener claridad.
+
+Tipado estático (typing) y estructuras validadas.
+
+Arquitectura basada en interfaces y composición, no solo herencia.
+
+Serialización de estados (guardar/cargar simulaciones).
+
+Preparar posibles migraciones a Unity (C# interface compatibility, tick → coroutine, etc.)
+
+🧴 Retículo endoplasmático liso (REL / Smooth ER)
+Función: Síntesis de lípidos, detoxificación celular, almacenamiento de calcio.
+
+No tiene ribosomas en su superficie.
+
+
+Pueden estar libres en el citoplasma o adheridos al RER.
+
+📦 Aparato de Golgi (Golgi apparatus)
+Función: Modifica, empaqueta y distribuye proteínas y lípidos.
+
+Es el "centro de distribución" de la célula.
+
+♻️ Lisosomas (Lysosomes)
+Función: Contienen enzimas digestivas que degradan residuos, bacterias o partes celulares dañadas.
+
+Son como el "sistema digestivo" de la célula.
+
+🧊 Peroxisomas (Peroxisomes)
+Función: Metabolizan ácidos grasos y neutralizan peróxidos (H₂O₂).
+
+Ayudan a desintoxicar la célula.
+
+🧱 Centrosoma y centriolos (Centrosome & Centrioles)
+Función: Participan en la organización del huso mitótico durante la división celular.
+
+Actúan como el "centro organizador de microtúbulos".
+
+🌐 Membrana plasmática (Plasma membrane)
+Función: Rodea la célula y regula el intercambio de sustancias con el exterior.
+
+Es la "frontera" de la célula.
+
+💧 Citosol y citoesqueleto (Cytosol & Cytoskeleton)
+Citosol: fluido gelatinoso donde ocurren muchas reacciones químicas.
+
+Citoesqueleto: red de proteínas que da forma y soporte, y permite el movimiento interno.

@@ -1,0 +1,4 @@
+All the organelles currently have arbitrary values for their general constructor.
+Ribosome transcription should be checked to work fine.
+Make the messure units coherent, especially mass (sometimes daltons, sometimes ug ect) and volume.
+Make Sure when developing simulations with higher level of abstraction to follow the same interface as the others.
